@@ -1,0 +1,8 @@
+<h2>Notes</h2>
+<%= link_to "Create New Note", new_note_path %>
+<% @notes.each do |note| %>
+	<div class="notes">
+		<p><%= note.text %></p>
+		<p><%= link_to "Permalink", note %> | <%= link_to "Edit", edit_note_path(note) %> | <%= link_to "Delete", note, :method => :delete %></p>
+	</div>
+<% end %>
