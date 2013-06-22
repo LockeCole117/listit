@@ -1,11 +1,11 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
 
-one:
+uncompleted:
   list_id: 1
-  boolean: 
+  completed: false
   name: MyString
 
-two:
+completed:
   list_id: 1
-  boolean: 
+  completed: true
   name: MyString
