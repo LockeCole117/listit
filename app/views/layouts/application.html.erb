@@ -7,6 +7,14 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+<header>
+	<%= link_to root_path do %>
+		<h1>ListIt: The New Todo List and Notes Manager</h1>
+	<% end %>
+</header>
+<div id="messages">
+	<%= render 'layouts/flash_messages' %>
+</div>
 
 <%= yield %>
 
