@@ -1,0 +1,17 @@
+<h2><%= @list.name %></h2>
+<h3>Todos</h3>
+<%= link_to 'Create New Todo', new_list_todo_path(@list) %>
+<ul>
+<% @list.todos.each do |todo| %>
+	<li>
+		<% if todo.completed? %>
+			<strong>Completed</strong>
+		<% else %>
+			<strong>Incomplete</strong>
+		<% end %>
+		<%= link_to "Mark Complete/Incomplete", toggle_complete_list_todo_path(@list, todo), :method => :post %>
+		<%= todo.name %> | <%= link_to "Edit", edit_list_todo_path(@list, todo) %>
+		| <%= link_to "Delete", list_todo_path(@list, todo), :method => "delete" %>
+	</li>
+<% end %>
+</ul>
