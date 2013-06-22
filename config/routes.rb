@@ -1,4 +1,15 @@
 Listit::Application.routes.draw do
+  resources :lists do
+    resources :todos do
+      post 'toggle_complete', :as => 'toggle_complete', :on => :member
+      get 'toggle_complete', :as => 'toggle_complete', :on => :member
+    end
+  end
+
+  resources :notes
+
+  root :to => 'lists#index'
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
