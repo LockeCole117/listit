@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Listit</title>
+  <title>List-It: The New Todo List and Notes Manager</title>
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
@@ -9,14 +9,21 @@
 <body>
 <header>
 	<%= link_to root_path do %>
-		<h1>ListIt: The New Todo List and Notes Manager</h1>
+		<h1>List-It: The New Todo List and Notes Manager</h1>
 	<% end %>
+	<nav>
+		<ul>
+			<li><%= link_to "Lists", lists_path %></li>
+			<li><%= link_to "Notes", notes_path %></li>
+		</ul>
+	</nav>
 </header>
+
 <div id="messages">
 	<%= render 'layouts/flash_messages' %>
 </div>
-
-<%= yield %>
-
+<div id="content">
+	<%= yield %>
+</div>
 </body>
 </html>

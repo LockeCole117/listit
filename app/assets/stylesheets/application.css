@@ -14,30 +14,83 @@
 
 body{
 	background: #FFFEF5;
+	padding: 0px;
+	margin: 0px;
 }
 
 h1,h2,h3{
-	color: #7F764E;
+	color: #3D3323;
 	font-family: sans-serif;
+}
+
+h2{
+	font-size: 20px;
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+
+h3{
+	font-size: 25px;
 }
 
 a {
 	color: #3A427B;
 }
 
-a h1{
-	color: #3A427B;
-	font-style: italic;
+header{
+	background: #3A427B;
+	padding: 10px;
+	color: #FFFEF5;
 }
 
-h2 a{
-	color: #7F764E;
+header h1{
+	margin-top: 0px;
+	margin-bottom: 0px;
+	font-size: 25px;
+}
+
+header a h1{
+	color: white;
+}
+
+header a{
+	text-decoration: none;
+	color: #FFFEF5;
+}
+
+header nav ul{
+	margin: 0px;
+	margin-top: 5px;
+	padding: 0px;
+}
+
+header nav ul li{
+	display: inline;
+	font-size: 20px;
+}
+
+header nav ul li a:hover{
+	text-decoration: underline;
+}
+
+header nav ul li:after{
+	margin-left: 10px;
+	margin-right: 10px;
+	content: "|";
+}
+
+header nav ul li:last-child:after{
+	content: none;
+}
+
+h3 a{
+	color: #3D3323;
 }
 
 .flash{
 	font-weight: bold;
-	font-size: 30px;
-	padding: 10px;
+	font-size: 18px;
+	padding: 5px;
 }
 
 .success{
@@ -47,9 +100,18 @@ h2 a{
 
 .error{
 	background: #C4A49F;
-	color: red;
+	color: #6E0600;
 }
 
 .notice{
 	background: #9EBCDB;
+}
+
+#content {
+	margin: 10px;
+	font-size: 18px;
+}
+
+#content ul{
+	padding-left: 15px;
 }
