@@ -2,7 +2,7 @@
 <ul>
 <% @todos.each do |todo| %>
 	<li>
-		<%= link_to "Mark Complete/Incomplete", toggle_complete_list_todo_path(@list, todo) %>
+		<%= link_to "Toggle", toggle_complete_list_todo_path(@list, todo) %>
 		<%= todo.name %> | <%= link_to "Edit", edit_list_todo_path(@list, todo) %>
 		| <%= link_to "Delete", list_todo_path(@list, todo), :method => "delete" %>
 	</li>

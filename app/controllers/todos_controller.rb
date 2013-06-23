@@ -9,7 +9,7 @@ class TodosController < ApplicationController
   def create
     @todo = @list.todos.build(params[:todo])
     if @todo.save
-      redirect_to list_todo_path(@list, @todo), :flash => {:success => "Todo Created"}
+      redirect_to list_path(@list), :flash => {:success => "Todo Created"}
     else
       render 'new'
     end
@@ -25,7 +25,7 @@ class TodosController < ApplicationController
     begin
       @todo = Todo.find(params[:id])
     rescue ActiveRecord::RecordNotFound
-      redirect_to root_path, :flash => {:notice => "Todo not found"}
+      redirect_to list_path(@list), :flash => {:notice => "Todo not found"}
     end
 
   end
@@ -35,7 +35,7 @@ class TodosController < ApplicationController
     begin
       @todo = Todo.find(params[:id])
     rescue ActiveRecord::RecordNotFound
-      redirect_to root_path, :flash => {:notice => "Todo not found"}
+      redirect_to list_path(@list), :flash => {:notice => "Todo not found"}
     end
   end
 
@@ -43,12 +43,12 @@ class TodosController < ApplicationController
     begin
       @todo = Todo.find(params[:id])
       if @todo.update_attributes(params[:todo])
-        render 'show'
+        redirect_to list_path(@list), :flash => {:success => "Todo Updated"}
       else
         render 'edit'
       end
     rescue ActiveRecord::RecordNotFound
-      redirect_to root_path, :flash => {:notice => "Todo not found"}
+      redirect_to list_path(@list), :flash => {:notice => "Todo not found"}
     end
   end
 
@@ -57,9 +57,9 @@ class TodosController < ApplicationController
       @todo = Todo.find(params[:id])
       @todo.completed = !@todo.completed?
       @todo.save
-      redirect_to list_path(@list), :flash => {:success => "Todo marked as #{@todo.completed? ? 'Complete' : 'Incomplete'}"}
+      redirect_to list_path(@list), :flash => {:success => "Todo Marked as #{@todo.completed? ? 'Complete' : 'Incomplete'}"}
     rescue ActiveRecord::RecordNotFound
-      redirect_to root_path, :flash => {:notice => "Todo not found"}
+      redirect_to list_path(@list), :flash => {:notice => "Todo not found"}
     end
   end
 
@@ -67,9 +67,9 @@ class TodosController < ApplicationController
     begin
       @todo = Todo.find(params[:id])
       @todo.destroy
-      redirect_to root_path, :flash => {:success => "Todo Deleted"}
+      redirect_to list_path(@list), :flash => {:success => "Todo Deleted"}
     rescue ActiveRecord::RecordNotFound
-      redirect_to root_path, :flash => {:error => "Todo not found"}
+      redirect_to list_path(@list), :flash => {:error => "Todo not found"}
     end
   end
 
@@ -79,7 +79,7 @@ class TodosController < ApplicationController
     begin
       @list = List.find(params[:list_id])
     rescue ActiveRecord::RecordNotFound
-      redirect_to root_path :flash => {:error => "List Not Found"} and return
+      redirect_to root_path, :flash => {:error => "List Not Found"} and return
     end
   end
 end
