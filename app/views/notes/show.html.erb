@@ -1,2 +1,5 @@
 <h2>Note</h2>
+<div class="actions">
+	<%= link_to "Permalink", @note %> | <%= link_to "Edit", edit_note_path(@note) %> | <%= link_to "Delete", @note, :method => :delete %>
+</div>
 <%= @note.text %>
